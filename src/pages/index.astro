@@ -1,0 +1,48 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Footer from '@components/Footer.astro';
+import { homepage } from '@content/homepage';
+import Features from '@components/Features.astro';
+import BlogImage from '@components/BlogImage.astro';
+import logo from '@images/logo2.jpg';
+import * as intro from '@content/intro.mdx';
+---
+
+<Layout class="max-w-5xl">
+  <section class="grid py-10 place-items-center text-center">
+    <h1
+      class="font-extrabold text-5xl mb-5 bg-clip-text text-transparent bg-gradient-to-b font-weight-bold from-violet-500 to-pink-500">
+      Nthg just mad
+    </h1>
+    <BlogImage
+      src={logo.src}
+      alt="Profile Pic"
+    />
+    <div class="text-left">
+      <intro.Content />
+    </div>
+  </section>
+  {
+    homepage.map((homepage) => (
+      <Features
+        title={homepage.title}
+        icon={homepage.icon}
+        content={homepage.content}
+      />
+    ))
+  }
+  <!-- <section -->
+  <!--   class="py-20 sm:flex sm:items-center sm:justify-evenly text-center sm:text-left" -->
+  <!-- > -->
+  <!--   { -->
+  <!--     ( -->
+  <!--       <ul class="grid sm:grid-cols-3 gap-16"> -->
+  <!--         {counter.map((counter) => ( -->
+  <!--           <Counter number={counter.number} label={counter.label} /> -->
+  <!--         ))} -->
+  <!--       </ul> -->
+  <!--     ) -->
+  <!--   } -->
+  <!-- </section> -->
+  <Footer />
+</Layout>

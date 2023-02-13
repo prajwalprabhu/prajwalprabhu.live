@@ -1,0 +1,23 @@
+---
+import Layout from "@layouts/Layout.astro";
+import BlogImage from "@components/BlogImage.astro";
+import Footer from "@components/Footer.astro";
+import logo from "@images/public/logo2.jpg";
+import { images } from "@content/images";
+
+// import images from "@images/public/*.jpg";
+---
+
+<Layout class="max-w-7xl">
+  <section class="grid py-10 place-items-center text-center">
+    <h1
+      class="font-extrabold text-5xl mb-5 bg-clip-text text-transparent bg-gradient-to-b font-weight-bold from-violet-500 to-pink-500"
+    >
+      Nthg just mad
+    </h1>
+  </section>
+  <section class="grid grid-cols-3">
+    {images.map((img) => <BlogImage src={img} alt={img} />)}
+  </section>
+  <Footer />
+</Layout>

@@ -1,0 +1,73 @@
+---
+import Layout from "@layouts/Layout.astro";
+import BlogCard from "@components/BlogCard.astro";
+interface Frontmatter {
+  title: string;
+  pubDate: string;
+  description: string;
+}
+const metadata = {
+  title: "Blog - TPP",
+  description: "Blog Page of TPP",
+};
+
+let travel_blogs = await Astro.glob<Frontmatter>("./blog/travel/*.mdx");
+travel_blogs = travel_blogs.sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+);
+let dev_blogs = await Astro.glob<Frontmatter>("./blog/dev/*.mdx");
+dev_blogs = dev_blogs.sort(
+  (a, b) =>
+    new Date(b.frontmatter.pubDate).valueOf() -
+    new Date(a.frontmatter.pubDate).valueOf()
+);
+---
+
+<Layout class="max-w-4xl" {...metadata}>
+  <section>
+    <h1 class="text-4xl mb-6">My Blogs</h1>
+    <p class="mb-6">
+      Welcom to my blogs,.... <br />
+      You may know about to of my maddnesses , so there are majourly two section
+      of blogs <br />
+    </p>
+    <ol class="list-decimal">
+      <li>Travel</li>
+      <li>Programing</li>
+    </ol>
+  </section>
+  <section class="h-10"></section>
+  <section>
+    <h2 class="text-violet-400">Travel</h2>
+    <ul>
+      {
+        travel_blogs.map((post) => (
+          <BlogCard
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            pubDate={post.frontmatter.pubDate}
+            url={post.url}
+          />
+        ))
+      }
+    </ul>
+  </section>
+  <section class="h-10"></section>
+  <section>
+    <h2 class="text-violet-400">Programing</h2>
+    <ul>
+      {
+        dev_blogs.map((post) => (
+          <BlogCard
+            title={post.frontmatter.title}
+            description={post.frontmatter.description}
+            pubDate={post.frontmatter.pubDate}
+            url={post.url}
+          />
+        ))
+      }
+    </ul>
+  </section>
+</Layout>

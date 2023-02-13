@@ -1,0 +1,55 @@
+---
+import { Icon } from 'astro-icon';
+// component from flowbite
+---
+
+<footer
+  class="p-4 bg-indigo sm:p-6 dark:bg-indigo-700 mx-auto max-w-6xl sticky top-[100vh] underline-offset-2">
+  <div class="md:flex md:justify-between">
+    <div class="mb-6 md:mb-0 flex flex-col">
+      <a
+        href="/"
+        class="flex items-center"
+        aria-label="mountain icon">
+        <Icon
+          name="lucide:mountain-snow"
+          class="w-8 h-8"
+        />
+        <span
+          class="self-center text-2xl whitespace-nowrap dark:text-white ml-3 mt-1"
+          >nthg_just_mad</span
+        >
+      </a>
+      <p class="text-base text-violet-600 dark:text-violet-300 mt-3">
+        Be ur self | Love ur self | Build ur self
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:space-x-10 text-base">
+      <div>
+        <h2 class="mb-6 text-sm text-violet-900 uppercase dark:text-violet-400">
+          Follow me
+        </h2>
+        <ul class="text-violet-800 dark:text-violet-400">
+          <li class="mb-4">
+            <a
+              href="https://github.com/prajwalprabhu"
+              target="_blank"
+              class="hover:underline"
+              target="_blank"
+              >Github</a
+            >
+          </li>
+          <li>
+            <a
+              href="httpsL//instagram.com/prajwalprabhu_03"
+              target="_blank"
+              class="hover:underline"
+              target="_blank"
+              >Instagram</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</footer>
