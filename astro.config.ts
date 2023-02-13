@@ -8,38 +8,30 @@ import astroLayouts from 'astro-layouts';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://prajwalprabhu.live',
-    base: '/',
-    markdown: {
-        shikiConfig: {
-            theme: 'dracula',
-        },
+  site: 'https://prajwalprabhu.live',
+  base: '/',
+  markdown: {
+    shikiConfig: {
+      theme: 'dracula',
     },
-    integrations: [
-        compress({
-            css: true,
-            html: true,
-            js: true,
-            img: true,
-            svg: true,
-            logger: 0,
-        }),
-        tailwind(),
-        sitemap(),
-        mdx({
-            remarkPlugins: [
-                [
-                    astroLayouts,
-                    {
-                        default: '@layouts/Layout.astro',
-                        'pages/blog/**/*.mdx': '@layouts/BlogLayout.astro',
-                    },
-                ],
-            ],
-        }),
-        image({
-            serviceEntryPoint: '@astrojs/image/sharp',
-            cacheDir: './.cache/image',
-        }),
-    ],
+  },
+  integrations: [
+    tailwind(),
+    sitemap(),
+    mdx({
+      remarkPlugins: [
+        [
+          astroLayouts,
+          {
+            default: '@layouts/Layout.astro',
+            'pages/blog/**/*.mdx': '@layouts/BlogLayout.astro',
+          },
+        ],
+      ],
+    }),
+    image({
+      serviceEntryPoint: '@astrojs/image/sharp',
+      cacheDir: './.cache/image',
+    }),
+  ],
 });
