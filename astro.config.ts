@@ -16,6 +16,14 @@ export default defineConfig({
     },
   },
   integrations: [
+    // compress({
+    //     css: true,
+    //     html: true,
+    //     js: true,
+    //     img: true,
+    //     svg: true,
+    //     logger: 0,
+    // }),
     tailwind(),
     sitemap(),
     mdx({
